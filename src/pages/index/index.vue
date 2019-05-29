@@ -39,7 +39,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello 我的小程序',
+      motto: 'Hello 我的小程序s',
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png'
