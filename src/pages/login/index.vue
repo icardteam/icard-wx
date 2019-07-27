@@ -1,39 +1,33 @@
 <template>
   <div>
     <div class="title">
-      <!--<img class="logo" src="/static/images/icardlogo.png">-->
-      <div>心愿便利贴</div>
-      <div>
-
-      </div>
-      <!--<button style="margin-top:200px;" open-type="getUserInfo">使用微信登陆</button>-->
-    </div>
-    <div class="weui-msg">
-      <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
-      <div class="weui-msg__text-area">
-        <h2 class="weui-msg__title">操作成功</h2>
-        <p class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<a href="javascript:void(0);">文字链接</a></p>
-      </div>
-      <div class="weui-msg__opr-area">
-        <p class="weui-btn-area">
-          <a href="javascript:history.back();" class="weui-btn weui-btn_primary">推荐操作</a>
-          <a href="javascript:history.back();" class="weui-btn weui-btn_default">辅助操作</a>
-        </p>
-      </div>
-      <div class="weui-msg__extra-area">
-        <div class="weui-footer">
-          <p class="weui-footer__links">
-            <a href="javascript:void(0);" class="weui-footer__link">底部链接文本</a>
-          </p>
-          <p class="weui-footer__text">Copyright &copy; 2008-2016 weui.io</p>
-        </div>
-      </div>
+      <img class="logo" src="/static/images/icardlogo.png">
+      <view style="margin-top: 100px;">
+        <i-button @click="handleOpen2">无标题对话框</i-button>
+      </view>
+      <i-modal :visible="visible2" @ok="handleClose2" @cancel="handleClose2">
+        <view>心愿便利贴将获取您的头像，昵称等公开信息</view>
+      </i-modal>
+      <i-button type="primary" open-type="getUserInfo">使用微信登陆</i-button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data (){
+    return {
+      visible2:false
+    }
+  },
+  methods : {
+    handleOpen2(){
+      this.visible2 = true;
+    },
+    handleClose2(){
+      this.visible2 = false;
+    }
+  },
   mounted() {
     wx.login({
       success(res) {
@@ -41,7 +35,7 @@ export default {
           console.log(res.code);
         }
       }
-    });
+    })
   }
 };
 </script>
