@@ -1,11 +1,14 @@
 <template>
   <div>
     <div class="title">
-      <img class="logo" src="/static/images/icardlogo.png">
-      <i-modal :visible="visible2" @ok="handleClose2" @cancel="handleClose2">
-        <view>心愿便利贴将获取您的头像，昵称等公开信息</view>
+      <!--<img class="logo" src="/static/images/icardlogo.png">-->
+      <i-modal title="微信授权" :visible="visible2" @ok="handleOk" @cancel="handleCancel">
+        <view class="headtext">心愿便利贴申请获得以下权限：</view>
+        <view>
+          <input type="checkbox" disabled checked>
+          <span style="font-size: 0.7rem">获得您的公开信息(昵称、头像等)</span>
+        </view>
       </i-modal>
-      <!--<i-button type="primary" open-type="getUserInfo">使用微信登陆</i-button>-->
     </div>
   </div>
 </template>
@@ -18,10 +21,10 @@ export default {
     }
   },
   methods : {
-    handleOpen2(){
-      this.visible2 = true;
+    handleOk(){
+      this.visible2 = false;
     },
-    handleClose2(){
+    handleCancel(){
       this.visible2 = false;
     }
   },
@@ -44,10 +47,13 @@ export default {
 
 .logo {
   margin-top: 1rem;
-  width: 80px;
-  height: 60px;
+  width: 1.2rem;
+  height: 1.2rem;
   display: inline-block;
-  overflow: hidden;
+}
+
+.headtext {
+  font-weight: 700;
 }
 
 view {
