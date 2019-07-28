@@ -2,6 +2,8 @@
   "pages": ["pages/login/main"],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff"
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "心愿便利贴",
+    "navigationBarTextStyle": "black"
   }
 }
